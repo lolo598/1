@@ -164,7 +164,6 @@ var proxy_host=[
 "commons.moegirl.org",
 "rawgit.com",
 "githubusercontent.com",
-"raw.githubusercontent.com",
 "ntere.st",
 "ascii2d.net",
 "saucenao.com",
@@ -430,6 +429,7 @@ var proxy_host=[
 "zekamashi.net",
 "kisscosplay.moe",
 "yandex.com",
+"yandex.net",
 "yandex.ru",
 "yastatic.net",
 "suannai.me",
@@ -479,14 +479,13 @@ var proxy_host=[
 "vivaldi.net",
 "keepass.info",
 
-
 ];
 function FindProxyForURL(url, host) {
-    for(var i=0;i<proxy_host.length;i++){
-		var ph=proxy_host[i];
-		if(ph===host||new RegExp("\\."+ph + "$").test(host)){
-			return "SOCKS5 127.0.0.1:1080";
-		}
-	}
-    return "DIRECT";
+  for (var i = 0; i < proxy_host.length; i++) {
+    var ph = proxy_host[i];
+    if (ph === host || new RegExp("\\." + ph + "$").test(host)) {
+      return "SOCKS5 127.0.0.1:1080";
+    }
+  }
+  return "DIRECT";
 }
